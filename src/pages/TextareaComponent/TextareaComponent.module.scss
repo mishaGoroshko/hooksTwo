@@ -1,0 +1,23 @@
+
+.textareaContainer {
+  position: relative;
+
+  .textarea {
+    width: 300px;
+    height: 100px;
+    padding: 5px 10px;
+  }
+
+  .span {
+    position: absolute;
+    bottom: 15px;
+    right: 5px;
+    color: green;
+    font-weight: bold;
+  }
+
+  .errorColor {
+    color: red;
+  }
+
+}

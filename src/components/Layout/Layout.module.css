@@ -1,0 +1,7 @@
+.outletWrapper {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 80px);
+}

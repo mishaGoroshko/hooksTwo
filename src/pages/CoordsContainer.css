@@ -1,0 +1,16 @@
+.area {
+    width: 100px;
+    height: 100px;
+    background-color: cornflowerblue;
+    position: relative;
+}
+
+.point {
+    width: 3px;
+    height: 3px;
+    background-color: darkgreen;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+
