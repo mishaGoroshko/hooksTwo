@@ -1,12 +1,27 @@
-import React from 'react';
-import {UserProfile} from '../../api/api';
+import React, {useEffect, useState} from 'react';
+import {controller, profileAPI, UserProfile} from '../../api/api';
 
 type DetailsType = {
-    profile: UserProfile  | null
+    userID: number | null
 }
 
-export const Details: React.FC<DetailsType> = ({profile}) => {
+export const Details: React.FC<DetailsType> = ({userID}) => {
     console.log('Details')
+
+    const [profile, setProfile] = useState<UserProfile | null>(null)
+
+    useEffect(() => {
+        const getProfile = async () => {
+            if (userID === null) return
+            const res = await profileAPI.getProfile(userID)
+            setProfile(res)
+
+        }
+        getProfile()
+
+        // return () => controller.abort()
+    }, [userID])
+
     return (
         <div>
             <br/>

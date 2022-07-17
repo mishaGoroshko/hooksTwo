@@ -6,15 +6,15 @@ type UsersType = {
     onClickUser: (id: number) => void
 }
 
-export const Users: React.FC<UsersType> = ({users, onClickUser}) => {
+export const Users = React.memo<UsersType>(({users, onClickUser}) => {
     console.log('Users')
 
     return (
         <div>
             {users.map(u => (
                 <div key={u.id}
-                     onClick={()=>onClickUser(u.id)}
-                     style={{display: 'flex'}}>
+                     onClick={() => onClickUser(u.id)}
+                     style={{display: 'flex', cursor: 'pointer'}}>
                     <img src={u.photos.small}
                          style={{height: '30px', width: '30px'}}
                          alt=""/>
@@ -22,4 +22,4 @@ export const Users: React.FC<UsersType> = ({users, onClickUser}) => {
                 </div>))}
         </div>
     );
-}
+})

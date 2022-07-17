@@ -35,10 +35,13 @@ export type UserType = {
     location: { city: string, country: string }
 }
 
+export const controller = new AbortController();
+
 let instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
-    headers: {'API-KEY': 'f3f54432-d8c8-49d7-98bb-7ebfd06f7be2'}
+    headers: {'API-KEY': 'f3f54432-d8c8-49d7-98bb-7ebfd06f7be2'},
+    // signal: controller.signal
 })
 type userAPIType = {
     items: UserType[]
@@ -102,7 +105,7 @@ export const userAPI = {
 
 export const profileAPI = {
     getProfile: (userID: number) => instance
-        .get<UserProfile>(`profile/${userID}`)
+        .get<UserProfile>(`profile/${userID}`, {signal: controller.signal})
         .then(res => res.data),
 
     getStatus: (userID: number | null) => instance
