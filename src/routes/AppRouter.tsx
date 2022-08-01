@@ -8,6 +8,7 @@ import {NotFound} from '../pages/NotFound';
 import {Layout} from '../components/Layout/Layout';
 import {Counter} from '../pages/Counter/Counter';
 import {UsersComponent} from '../pages/Users/UsersComponent';
+import {Styled} from '../pages/Styled/Styled';
 
 export const AppRouter = () => {
     const appRoutes = useRoutes([
@@ -17,19 +18,15 @@ export const AppRouter = () => {
             children: [
                 {index: true, element: <TextareaComponent maxLength={10}/>},
                 {
-                    path: AppRoutePaths.TEXTAREA,
-                    element: <TextareaComponent maxLength={10}/>
-                },
-                {
                     path: AppRoutePaths.SELECT,
                     element: <SelectComponent values={[1, 2, 3, 4, 5]}/>
                 },
                 {path: AppRoutePaths.COORDS, element: <CoordsContainer/>},
                 {path: AppRoutePaths.COUNTER, element: <Counter/>},
                 {path: AppRoutePaths.USERS, element: <UsersComponent/>},
+                {path: AppRoutePaths.STYLED, element: <Styled/>},
             ],
         },
-
         {
             path: AppRoutePaths.RANDOM,
             element: <Navigate to={AppRoutePaths.NOT_FOUND}/>,

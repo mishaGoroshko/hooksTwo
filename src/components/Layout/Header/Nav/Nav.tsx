@@ -39,6 +39,12 @@ export const Nav: FC = () => {
                 }
                 to={AppRoutePaths.USERS}
             >USERS</NavLink>
+            <NavLink
+                className={({isActive}) =>
+                    isActive ? `${s.Link} ${s.activeLink}` : `${s.Link}`
+                }
+                to={AppRoutePaths.STYLED}
+            >STYLED</NavLink>
 
         </nav>
     );
